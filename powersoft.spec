@@ -90,7 +90,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES README TODO LICENCJA 
+%doc CHANGES README TODO LICENCJA
 %attr(755,root,root) %{_sbindir}/*
 %attr(754,root,root) /etc/rc.d/init.d/powersoft
 %attr(640,root,root) /etc/sysconfig/powersoft
