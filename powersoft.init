@@ -2,7 +2,7 @@
 #
 # powersoft	EVER UPS monitoring service
 #
-# chkconfig:    2345 90 20
+# chkconfig:	2345 90 20
 #
 # description:	powersoft monitors UPSs made by EVER Sp. z o.o.
 # processname:	powersoft
@@ -15,6 +15,7 @@
 
 # Get service config - may override defaults
 [ -f /etc/sysconfig/powersoft ] && . /etc/sysconfig/powersoft
+
 
 # See how we were called.
 case "$1" in
@@ -32,11 +33,11 @@ case "$1" in
 		msg_already_running powersoft
 		exit 1
 	fi
-        ;;
+	;;
   stop)
-        # Stop daemons.
-        # show "Stopping %s service" powersoft
 	if [ -f /var/lock/subsys/powersoft ]; then
+		# Stop daemons.
+		# show "Stopping %s service" powersoft
 		msg_stopping powersoft
 		killproc powersoft
 		RETVAL=$?
@@ -46,22 +47,22 @@ case "$1" in
 		msg_not_running powersoft
 		exit 1
 	fi	
-        ;;
+	;;
   restart|reload)
-        $0 stop
+	$0 stop
 	$0 start
-        ;;
+	;;
   force-reload)
 	$0 stop && $0 start
 	;;
   status)
 	status powersoft
 	RETVAL=$?
-        ;;
+	;;
   *)
-        # show "Usage: %s {start|stop|status|restart|reload|force-reload}" $0
-	msg_usage "$0 {start|stop|status|restart|reload|force-reload}"
-        exit 1
+	# show "Usage: %s {start|stop|restart|reload|force-reload|status}"
+	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
+	exit 1
 esac
 
 exit $RETVAL
