@@ -16,7 +16,7 @@
 # Get service config - may override defaults
 [ -f /etc/sysconfig/powersoft ] && . /etc/sysconfig/powersoft
 
-
+RETVAL=0
 # See how we were called.
 case "$1" in
   start)
@@ -31,7 +31,6 @@ case "$1" in
 	else
 		# show "%s service is already running." powersoft
 		msg_already_running powersoft
-		exit 1
 	fi
 	;;
   stop)
@@ -40,29 +39,25 @@ case "$1" in
 		# show "Stopping %s service" powersoft
 		msg_stopping powersoft
 		killproc powersoft
-		RETVAL=$?
 		rm -f /var/lock/subsys/powersoft /var/run/power.pid /var/run/powersoft.pid
 	else
 		# show "%s service is not running." powersoft
 		msg_not_running powersoft
-		exit 1
 	fi	
 	;;
-  restart|reload)
+  restart|force-reload)
 	$0 stop
 	$0 start
-	;;
-  force-reload)
-	$0 stop && $0 start
+	exit $?
 	;;
   status)
 	status powersoft
-	RETVAL=$?
+	exit $?
 	;;
   *)
-	# show "Usage: %s {start|stop|restart|reload|force-reload|status}"
-	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
-	exit 1
+	# show "Usage: %s {start|stop|restart|force-reload|status}"
+	msg_usage "$0 {start|stop|restart|force-reload|status}"
+	exit 3
 esac
 
 exit $RETVAL
