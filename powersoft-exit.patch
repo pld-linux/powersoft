@@ -1,0 +1,18 @@
+--- powersoft-1.1.1b/powersoft.c.orig	Wed Mar 13 12:20:29 2002
++++ powersoft-1.1.1b/powersoft.c	Wed Jan 22 11:18:04 2003
+@@ -124,6 +124,7 @@
+ 		ReceiveByte(&UpsInfo, &ucTest);
+ 		if (ucTest < 67 || ucTest > 82)
+ 		{
++		    tcflush(UpsInfo.iSerial, TCIOFLUSH);
+ 		    PrintToLog("\tNierozpoznany typ zasilacza!\n");
+ 		    PrintError("Nierozpoznany typ zasilacza lub blad komunikacji!\n", 0, 0);
+ 		    return EXIT_FAILURE;
+@@ -153,6 +154,7 @@
+ 	    ReceiveByte(&UpsInfo, &ucTest);
+ 	    if (ucTest < 67 || ucTest > 82)
+ 	    {
++		tcflush(UpsInfo.iSerial, TCIOFLUSH);
+ 		PrintToLog("\tNierozpoznany typ zasilacza!\n");
+ 		PrintError("Nierozpoznany typ zasilacza lub blad komunikacji!\n", 0, 0);
+ 		return EXIT_FAILURE;
