@@ -1,0 +1,14 @@
+--- powersoft-1.1.1b/Makefile.orig	Wed Mar 13 13:53:19 2002
++++ powersoft-1.1.1b/Makefile	Wed Jan 22 10:12:15 2003
+@@ -33,11 +33,9 @@
+ 
+ powersoft:	$(O_MAIN_FILES)
+ 	$(CC) $(C_OPTS) $(O_MAIN_FILES) -o powersoft
+-	@strip powersoft
+ 
+ psstat:		$(O_STAT_FILES)
+ 	$(CC) $(C_OPTS) $(LOADLIBS) $(O_STAT_FILES) -o psstat
+-	@strip psstat
+ 
+ psnet:		$(O_CGI_FILES)
+ 	$(CC) $(C_OPTS) $(O_CGI_FILES) -o psnet.cgi
