@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Daemons
 Source0:	http://www.ever.com.pl/pliki/%{name}-%{version}.tar.gz
+# Source0-md5:	3130716579a1af34620ebf0fe16f4134
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		%{name}-nostrip.patch
