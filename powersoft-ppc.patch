@@ -1,0 +1,11 @@
+--- powersoft-1.1.1b/utils.c.orig	Wed Oct  3 15:25:56 2001
++++ powersoft-1.1.1b/utils.c	Wed Jan 22 10:16:04 2003
+@@ -167,6 +167,8 @@
+ 
+     va_start(ap, format);
+     iRet = vfprintf(fl, format, ap);
++    va_end(ap);
++    va_start(ap, format);
+     vsprintf(szMsgBuffer, format, ap);
+     va_end(ap);
+ 
