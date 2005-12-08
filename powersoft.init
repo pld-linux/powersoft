@@ -39,7 +39,7 @@ case "$1" in
 		rm -f /var/lock/subsys/powersoft /var/run/power.pid /var/run/powersoft.pid
 	else
 		msg_not_running powersoft
-	fi	
+	fi
 	;;
   restart|force-reload)
 	$0 stop
