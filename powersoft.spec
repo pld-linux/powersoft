@@ -14,9 +14,9 @@ Patch1:		%{name}-ppc.patch
 Patch2:		%{name}-exit.patch
 URL:		http://www.ever.com.pl/powersoft_prod.php
 BuildRequires:	ncurses-devel
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 Requires:	SysVinit
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/powersoft
@@ -93,14 +93,14 @@ fi
 %doc CHANGES README TODO LICENCJA
 %attr(755,root,root) %{_sbindir}/*
 %attr(754,root,root) /etc/rc.d/init.d/powersoft
-%attr(640,root,root) /etc/sysconfig/powersoft
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/powersoft
 %attr(750,root,root) %dir %{_sysconfdir}
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/powersoft.conf
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/pshalt.msg
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/pshalt.sms
-%attr(750,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/messages
-%attr(750,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/pwrfail
-%attr(750,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/pwrok
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/powersoft.conf
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/pshalt.msg
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/pshalt.sms
+%attr(750,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/messages
+%attr(750,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/pwrfail
+%attr(750,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/pwrok
 
 %files cgi
 %defattr(644,root,root,755)
