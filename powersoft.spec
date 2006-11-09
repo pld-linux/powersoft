@@ -35,7 +35,7 @@ UPS firmy EVER Sp. z o.o. o oznaczeniu DPC.
 Summary:	CGI interface for EVER UPS monitoring service
 Summary(pl):	Interfejs CGI do monitorowania zasilaczy awaryjnych UPS firmy EVER
 Group:		Applications/WWW
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description cgi
 CGI interface for EVER UPS monitoring service.
