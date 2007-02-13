@@ -1,5 +1,5 @@
 Summary:	EVER UPS monitoring utilities
-Summary(pl.UTF-8):   Narzędzia do monitorowania zasilaczy awaryjnych UPS firmy EVER
+Summary(pl.UTF-8):	Narzędzia do monitorowania zasilaczy awaryjnych UPS firmy EVER
 Name:		powersoft
 Version:	1.1.1b
 Release:	1
@@ -33,7 +33,7 @@ UPS firmy EVER Sp. z o.o. o oznaczeniu DPC.
 
 %package cgi
 Summary:	CGI interface for EVER UPS monitoring service
-Summary(pl.UTF-8):   Interfejs CGI do monitorowania zasilaczy awaryjnych UPS firmy EVER
+Summary(pl.UTF-8):	Interfejs CGI do monitorowania zasilaczy awaryjnych UPS firmy EVER
 Group:		Applications/WWW
 Requires:	%{name} = %{version}-%{release}
 
